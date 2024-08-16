@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <gresources>
-    <gresource prefix="/com/eddieshao/sgsm">
+    <gresource prefix="/com/eddieshao/gtkpoc">
         <file>style.css</file>
 
         <file>main.ui</file>

@@ -6,7 +6,7 @@
 static GtkWindow *init_window(GtkApplication *app) {
     GtkWindow *window = GTK_WINDOW(gtk_application_window_new(app));
 
-    gtk_window_set_title(window, "Silver Gallery Sales Manager");
+    gtk_window_set_title(window, "GTK Proof of Concept");
     gtk_window_set_default_size(window, 1600, 900);
     
     return window;
@@ -47,7 +47,7 @@ static void activate(GtkApplication *app, gpointer user_data) {
 }
 
 int main(int argc, char *argv[]) {
-    GtkApplication *app = gtk_application_new("com.eddieshao.sgsm", G_APPLICATION_DEFAULT_FLAGS);
+    GtkApplication *app = gtk_application_new("com.eddieshao.gtkpoc", G_APPLICATION_DEFAULT_FLAGS);
     g_signal_connect(app, "activate", G_CALLBACK(activate), NULL);
     int status = g_application_run(G_APPLICATION(app), argc, argv);
     g_object_unref(app);

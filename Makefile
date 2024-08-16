@@ -21,7 +21,7 @@ SRC_FILES = $(shell find . -name "*.c")
 RES_FILES = $(shell find $(RES_DIR) -name "*.ui" -o -name "*.css")
 OBJ_FILES = $(SRC_FILES:.c=.o)
 
-TARGET = sgsm
+TARGET = gtkpoc
 
 all: res bin
 res: $(RES_INC_FILE) $(RES_OBJ_FILE) $(RES_PATH_INC_FILE) $(RES_PATH_OBJ_FILE)

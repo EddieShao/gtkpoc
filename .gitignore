@@ -3,7 +3,7 @@
 
 # output files
 *.o
-sgsm
+gtkpoc
 
 # generated
 include/resources.h
