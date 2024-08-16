@@ -1,0 +1,12 @@
+# editor
+.vscode
+
+# output files
+*.o
+sgsm
+
+# generated
+include/resources.h
+include/resource-paths.h
+src/resources.c
+src/resource-paths.c
