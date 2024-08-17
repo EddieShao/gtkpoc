@@ -22,14 +22,14 @@ static void init_css() {
 static void init_ui(GtkWindow *window) {
     GtkBuilder *builder = gtk_builder_new_from_resource(RES_MAIN_UI);
 
-    GtkWidget *root = GTK_WIDGET(gtk_builder_get_object(builder, "root"));
-    if (root == NULL) {
-        g_error("Could not get object \"root\" from resource: %s", RES_MAIN_UI);
+    GtkWidget *router = GTK_WIDGET(gtk_builder_get_object(builder, "router"));
+    if (router == NULL) {
+        g_error("Could not get object \"router\" from resource: %s", RES_MAIN_UI);
     }
 
     // TODO: do UI initialization here
 
-    gtk_window_set_child(window, root);
+    gtk_window_set_child(window, router);
     g_object_unref(builder);
 }
 
