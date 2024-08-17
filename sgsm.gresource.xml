@@ -4,5 +4,7 @@
         <file>style.css</file>
 
         <file>main.ui</file>
+        <file>route/db-test.ui</file>
+        <file>route/home.ui</file>
     </gresource>
 </gresources>

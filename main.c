@@ -2,6 +2,7 @@
 
 #include "resources.h"
 #include "resource-paths.h"
+#include "ui/router.h"
 
 static GtkWindow *init_window(GtkApplication *app) {
     GtkWindow *window = GTK_WINDOW(gtk_application_window_new(app));
@@ -22,14 +23,15 @@ static void init_css() {
 static void init_ui(GtkWindow *window) {
     GtkBuilder *builder = gtk_builder_new_from_resource(RES_MAIN_UI);
 
-    GtkWidget *router = GTK_WIDGET(gtk_builder_get_object(builder, "router"));
+    GtkNotebook *router = GTK_NOTEBOOK(gtk_builder_get_object(builder, "router"));
     if (router == NULL) {
         g_error("Could not get object \"router\" from resource: %s", RES_MAIN_UI);
     }
 
-    // TODO: do UI initialization here
+    gtkpoc_router_init(router);
+    gtkpoc_router_navigate(ROUTE_HOME); // might redundant nav to current page
 
-    gtk_window_set_child(window, router);
+    gtk_window_set_child(window, GTK_WIDGET(router));
     g_object_unref(builder);
 }
 
