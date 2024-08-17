@@ -1,5 +1,10 @@
-@define-color blue #78c2ff;
+@define-color white #ffffff;
+@define-color black #464646;
 
-.test {
-    color: @blue;
+.background {
+    background-color: @white;
+}
+
+.text {
+    color: @black;
 }

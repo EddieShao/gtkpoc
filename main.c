@@ -33,16 +33,11 @@ static void init_ui(GtkWindow *window) {
     g_object_unref(builder);
 }
 
-static void activate(GtkApplication *app, gpointer user_data) {
-    (void)user_data; // unused
-
-    GtkWindow *window;
-
+static void activate(GtkApplication *app) {
     g_resources_register(sgsm_get_resource());
-    window = init_window(app);
+    GtkWindow *window = init_window(app);
     init_css();
     init_ui(window);
-
     gtk_window_present(window);
 }
 
