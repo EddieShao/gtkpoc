@@ -3,6 +3,7 @@
 #include "resources.h"
 #include "resource-paths.h"
 #include "ui/router.h"
+#include "db/version.h"
 
 static GtkWindow *init_window(GtkApplication *app) {
     GtkWindow *window = GTK_WINDOW(gtk_application_window_new(app));
@@ -44,6 +45,8 @@ static void activate(GtkApplication *app) {
 }
 
 int main(int argc, char *argv[]) {
+    g_print("SQLite3 version: %s\n", gtkpoc_sqlite_version());
+
     GtkApplication *app = gtk_application_new("com.eddieshao.gtkpoc", G_APPLICATION_DEFAULT_FLAGS);
     g_signal_connect(app, "activate", G_CALLBACK(activate), NULL);
     int status = g_application_run(G_APPLICATION(app), argc, argv);
