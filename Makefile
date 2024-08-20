@@ -22,7 +22,7 @@ INC_DIR=include
 RES_DIR=res
 SRC_DIR=src
 
-RES_XML=sgsm.gresource.xml
+RES_XML=gtkpoc.gresource.xml
 
 RES_INC_FILE=$(INC_DIR)/resources.h
 RES_SRC_FILE=$(SRC_DIR)/resources.c

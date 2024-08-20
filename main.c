@@ -52,7 +52,7 @@ static void init_ui(GtkWindow *window) {
 }
 
 static void activate(GtkApplication *app) {
-    g_resources_register(sgsm_get_resource());
+    g_resources_register(gtkpoc_get_resource());
     GtkWindow *window = init_window(app);
     init_css();
     init_ui(window);
