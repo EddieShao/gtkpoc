@@ -1,4 +1,4 @@
-CC ?= gcc
+CC=gcc
 
 PKGCONFIG=$(shell which pkg-config)
 CFLAGS=$(shell $(PKGCONFIG) --cflags gtk4)
@@ -31,33 +31,41 @@ bin: $(TARGET)
 # build target with objects
 
 $(TARGET): $(OBJ_FILES) $(RES_OBJ_FILE) $(RES_PATH_OBJ_FILE)
+	@echo "===== $@ ====="
 	$(CC) -I$(INC_DIR) -g -Wall -Wextra -o $@ $^ $(LIBS_GTK) $(LIBS_SQLITE)
 
 # build objects
 
 main.o: main.c
+	@echo "===== $@ ====="
 	$(CC) -I$(INC_DIR) -g -Wall -Wextra -c -o $@ $< $(CFLAGS)
 
 src/ui/%.o: src/ui/%.c
+	@echo "===== $@ ====="
 	$(CC) -I$(INC_DIR) -g -Wall -Wextra -c -o $@ $< $(CFLAGS)
 
 src/db/%.o: src/db/%.c
+	@echo "===== $@ ====="
 	$(CC) -I$(INC_DIR) -g -Wall -Wextra -c -o $@ $<
 
 # build resources
 
 $(RES_OBJ_FILE): $(RES_SRC_FILE)
+	@echo "===== $@ ====="
 	$(CC) -I$(INC_DIR) -g -Wall -Wextra -c -o $@ $(CFLAGS) $<
 
 $(RES_SRC_FILE) $(RES_INC_FILE): $(RES_XML) $(RES_FILES)
+	@echo "===== $@ ====="
 	glib-compile-resources $< --sourcedir=$(RES_DIR) --target=$@ --generate
 
 # build resource paths
 
 $(RES_PATH_OBJ_FILE): $(RES_PATH_SRC_FILE)
+	@echo "===== $@ ====="
 	$(CC) -I$(INC_DIR) -g -Wall -Wextra -c -o $@ $<
 
 $(RES_PATH_SRC_FILE) $(RES_PATH_INC_FILE): $(RES_XML)
+	@echo "===== $@ ====="
 	python3 gen-res-paths.py $< $@
 
 clean:
